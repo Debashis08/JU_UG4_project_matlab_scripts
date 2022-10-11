@@ -1,0 +1,1 @@
+[cidx, ctrs] = kmeans(X, 4);
