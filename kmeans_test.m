@@ -1,11 +1,11 @@
-topLevelFolder = 'D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\BLACK\DUTA';
+topLevelFolder = 'D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\WHITE\SUNRISE';      %%top level folder name should be same here and ...
 files = dir(topLevelFolder);
 dirFlags = [files.isdir];
 subFolders = files(dirFlags);
 subFolderNames = {subFolders(3:end).name};
 for k = 1 : length(subFolderNames)
 	fprintf('Sub folder #%d = %s\n', k, subFolderNames{k});
-    str=append("D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\BLACK\DUTA\",subFolderNames{k},"\*.jpg");
+    str=append("D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\WHITE\SUNRISE\",subFolderNames{k},"\*.jpg");      %%...here
     fprintf('%s',str);
     fprintf('\n');
     str_mat(:,k)=str;
@@ -50,9 +50,17 @@ for k=1:4
     end
 end
     [m,n]=kmeans(resMat_R,4);
+    color=["red","blue","black","green"];
     for i=1:4
-        scatter(n(i,1),n(i,2),"red");
+        scatter(n(i,1),n(i,2),color{i});
         hold on;
     end
-    scatter(resMat_R(:,1),resMat_R(:,2),1.5,"blue");
+   
+    scatter(resMat_R(m==1,1),resMat_R(m==1,2),8,"red");
+    hold on;
+    scatter(resMat_R(m==2,1),resMat_R(m==2,2),8,"blue");
+    hold on;
+    scatter(resMat_R(m==3,1),resMat_R(m==3,2),8,"black");
+    hold on;
+    scatter(resMat_R(m==4,1),resMat_R(m==4,2),8,"green");
     hold on;
