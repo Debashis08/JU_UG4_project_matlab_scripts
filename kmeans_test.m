@@ -1,11 +1,11 @@
-topLevelFolder = 'D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\WHITE\SUNRISE';      %%top level folder name should be same here and ...
+topLevelFolder = 'D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\BLACK\SUNRISE';      %%top level folder name should be same here and ...
 files = dir(topLevelFolder);
 dirFlags = [files.isdir];
 subFolders = files(dirFlags);
 subFolderNames = {subFolders(3:end).name};
 for k = 1 : length(subFolderNames)
 	fprintf('Sub folder #%d = %s\n', k, subFolderNames{k});
-    str=append("D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\WHITE\SUNRISE\",subFolderNames{k},"\*.jpg");      %%...here
+    str=append("D:\4TH YEAR\Project_1\CROPPED_ALL_IMAGES\BLACK\SUNRISE\",subFolderNames{k},"\*.jpg");      %%...here
     fprintf('%s',str);
     fprintf('\n');
     str_mat(:,k)=str;
@@ -27,9 +27,9 @@ for k=1:4
         G=img(:,:,2);
         B=img(:,:,3);
 
-        r=graycomatrix(R);
-        g=graycomatrix(G);
-        b=graycomatrix(B);
+        r=graycomatrix(R,'offset',[0 1]);
+        g=graycomatrix(G,'offset',[0 1]);
+        b=graycomatrix(B,'offset',[0 1]);
         
         r_props=graycoprops(r);
         r_props=cell2mat(struct2cell(r_props));
@@ -49,18 +49,35 @@ for k=1:4
         j=j+1;
     end
 end
-    [m,n]=kmeans(resMat_R,4);
-    color=["red","blue","black","green"];
-    for i=1:4
-        scatter(n(i,1),n(i,2),color{i});
-        hold on;
+%     [m,n]=kmeans(resMat_G,4);
+%     color=["red","blue","black","green"];
+%     for i=1:4
+%         scatter(n(i,1),n(i,2),color{i});
+%         hold on;
+%     end   
+%     scatter(resMat_G(m==1,1),resMat_G(m==1,2),8,"red");
+%     hold on;
+%     scatter(resMat_G(m==2,1),resMat_G(m==2,2),8,"blue");
+%     hold on;
+%     scatter(resMat_G(m==3,1),resMat_G(m==3,2),8,"black");
+%     hold on;
+%     scatter(resMat_G(m==4,1),resMat_G(m==4,2),8,"green");
+%     hold on;
+% writematrix(resMat_R,'D:\4TH YEAR\Project_1\MATRICES_GENERATED\Test.xlsx');
+%     
+excelSheetLocation='D:\4TH YEAR\Project_1\MATRICES_GENERATED\';
+for i=1:3
+    if i==1
+        [m,n]=kmeans(resMat_R,4);
+        sheet_path=append(excelSheetLocation,'Test_',int2str(i),'.xlsx');
+        writematrix(n,sheet_path);
+    elseif i==2
+        [m,n]=kmeans(resMat_G,4);
+        sheet_path=append(excelSheetLocation,'Test_',int2str(i),'.xlsx');
+        writematrix(n,sheet_path);
+    else
+        [m,n]=kmeans(resMat_B,4);
+        sheet_path=append(excelSheetLocation,'Test_',int2str(i),'.xlsx');
+        writematrix(n,sheet_path);
     end
-   
-    scatter(resMat_R(m==1,1),resMat_R(m==1,2),8,"red");
-    hold on;
-    scatter(resMat_R(m==2,1),resMat_R(m==2,2),8,"blue");
-    hold on;
-    scatter(resMat_R(m==3,1),resMat_R(m==3,2),8,"black");
-    hold on;
-    scatter(resMat_R(m==4,1),resMat_R(m==4,2),8,"green");
-    hold on;
+end
