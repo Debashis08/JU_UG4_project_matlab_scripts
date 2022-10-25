@@ -1,5 +1,5 @@
-cur_degree="0";     %%<----change this to 0,45,90,135 subseqeuntly
-folderName=append("D:\4TH YEAR\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE\",cur_degree,"_Degree_GLCM\");
+cur_degree="135";     %%<----change this to 0,45,90,135 subseqeuntly
+folderName=append("D:\4TH YEAR\Project_1\Sumana_temp_files\GLCM\",cur_degree,"_degree GLCM\");
 cur_channel="RGB";    %%<----change this for each degree,... R,G,B,RGB
 
 str=append(folderName,cur_channel,"_m.xlsx");
@@ -21,8 +21,8 @@ for k=1:4
     hold on;
 end
 set(gcf, 'Position', get(0, 'Screensize'));
-location="D:\4TH YEAR\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE\";%%<----change the path where the plots will be saved
-str=append(location,cur_degree,"_Degree_GLCM_",cur_channel);
+location="D:\4TH YEAR\Project_1\Sumana_temp_files\GLCM\";%%<----change the path where the plots will be saved
+str=append(location,cur_degree,"_degree GLCM_",cur_channel);
 saveas(gcf,str,"jpg");
 fprintf("Done");
 fprintf('\n');
