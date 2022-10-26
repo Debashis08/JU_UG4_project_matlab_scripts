@@ -1,7 +1,9 @@
-rng default; % For reproducibility
-X = [randn(100,2)*0.75+ones(100,2);
-    randn(100,2)*0.5-ones(100,2)];
-
+img=imread("D:\Wallpaper\nikola-majksner-hXNGeAFOgT4-unsplash.jpg");
 figure;
-plot(X(:,1),X(:,2),'.');
-title 'Randomly Generated Data';
+imshow(img);
+ycbcr_image=rgb2ycbcr(img);
+figure;
+imshow(ycbcr_image);
+r=ycbcr_image(:,:,1);
+g=ycbcr_image(:,:,2);
+b=ycbcr_image(:,:,3);
