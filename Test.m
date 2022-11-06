@@ -1,7 +1,7 @@
 img=imread("D:\Wallpaper\nikola-majksner-hXNGeAFOgT4-unsplash.jpg");
 figure;
 imshow(img);
-ycbcr_image=rgb2ycbcr(img);
+ycbcr_image=rgb2hsv(img);
 figure;
 imshow(ycbcr_image);
 r=ycbcr_image(:,:,1);
