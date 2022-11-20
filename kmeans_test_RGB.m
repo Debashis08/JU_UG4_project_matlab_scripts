@@ -1,11 +1,11 @@
-topLevelFolder = 'D:\4TH YEAR\1ST SEMESTER\Project_1\CROPPED_ALL_IMAGES\BLACK\SUNRISE';      %%top level folder name should be same here and ...
+topLevelFolder = 'D:\4TH YEAR\1ST SEMESTER\Project_1\CROPPED_ALL_IMAGES\BLACK\JK';      %%top level folder name should be same here and ...
 files = dir(topLevelFolder);
 dirFlags = [files.isdir];
 subFolders = files(dirFlags);
 subFolderNames = {subFolders(3:end).name};
 for k = 1 : length(subFolderNames)
 	fprintf('Sub folder #%d = %s\n', k, subFolderNames{k});
-    str=append("D:\4TH YEAR\1ST SEMESTER\Project_1\CROPPED_ALL_IMAGES\BLACK\SUNRISE\",subFolderNames{k},"\*.jpg");      %%...here
+    str=append("D:\4TH YEAR\1ST SEMESTER\Project_1\CROPPED_ALL_IMAGES\BLACK\JK\",subFolderNames{k},"\*.jpg");      %%...here
     fprintf('%s',str);
     fprintf('\n');
     str_mat(:,k)=str;
@@ -63,7 +63,7 @@ for k=1:4
 end
      
 resMat_RGB=[resMat_R resMat_G resMat_B];
-excelSheetLocation='D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_RGB\135_Degree_GLCM\'; %%<--change this folder name to the desired folder name...according to the offset applied...
+excelSheetLocation='D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_RGB\135_Degree_GLCM\'; %%<--change this folder name to the desired folder name...according to the offset applied...
 for i=1:4
     if i==1
         [m,n]=kmeans(resMat_R,4);

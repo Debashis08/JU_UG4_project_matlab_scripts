@@ -1,9 +1,0 @@
-img=imread("D:\Wallpaper\nikola-majksner-hXNGeAFOgT4-unsplash.jpg");
-figure;
-imshow(img);
-ycbcr_image=rgb2hsv(img);
-figure;
-imshow(ycbcr_image);
-r=ycbcr_image(:,:,1);
-g=ycbcr_image(:,:,2);
-b=ycbcr_image(:,:,3);

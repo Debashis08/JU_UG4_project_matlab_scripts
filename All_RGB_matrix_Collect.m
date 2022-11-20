@@ -1,11 +1,11 @@
-topLevelFolder = 'D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_HSV';      
+topLevelFolder = 'D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_YCbCr';      
 files = dir(topLevelFolder);
 dirFlags = [files.isdir];
 subFolders = files(dirFlags);
 subFolderNames = {subFolders(3:end).name};
 for k = 1 : length(subFolderNames)
 	fprintf('Sub folder #%d = %s\n', k, subFolderNames{k});
-    str=append("D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_HSV\",subFolderNames{k});
+    str=append("D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_YCbCr\",subFolderNames{k});
     fprintf('%s',str);
     fprintf('\n');
     str_mat(:,k)=str;
@@ -35,10 +35,10 @@ for i=1:4
     
     resMat=[resMat,resMat_R,resMat_G,resMat_B,resMat_RGB];
 end
-excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_HSV\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_resmat.xlsx";
+excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_YCbCr\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_resmat.xlsx";
 writematrix(resMat,excel_path);
 [m,n]=kmeans(resMat,4);
-excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_HSV\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_m.xlsx";
+excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_YCbCr\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_m.xlsx";
 writematrix(m,excel_path);
-excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\MATRICES_WORKSPACES\BLACK_SUNRISE_HSV\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_n.xlsx";
+excel_path="D:\4TH YEAR\1ST SEMESTER\Project_1\Suranjana_files\BLACK_JK_YCbCr\GLCM_All_Data_0_45_90_135_Degree\All_Data_0_45_90_135_Degree_n.xlsx";
 writematrix(n,excel_path);
